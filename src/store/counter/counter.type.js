@@ -1,7 +1,7 @@
-const CounterType = {
+const counterType = {
     INCREMENT: "INCREMENT",
     DECREMENT: "DECREMENT",
     RESET: "RESET",
 };
 
-export default CounterType;
+export default counterType;

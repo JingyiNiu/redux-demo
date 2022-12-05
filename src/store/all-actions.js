@@ -1,7 +1,9 @@
-import CounterActions from "./counter/counter.action";
+import counterActions from "./counter/counter.action";
+import cartActions from "./cart/cart.action";
 
-const AllActions = {
-    CounterActions
-}
+const allActions = {
+    counterActions,
+    cartActions,
+};
 
-export default AllActions;
+export default allActions;

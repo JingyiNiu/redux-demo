@@ -1,0 +1,9 @@
+const cartTypes = {
+    QUANTITY_INCREMENT: "QUANTITY_INCREMENT",
+    QUANTITY_DECREMENT: "QUANTITY_DECREMENT",
+    ADD_ITEM: "ADD_ITEM",
+    REMOVE_ITEM: "REMOVE_ITEM",
+    CLEAR_CART: "CLEAR_CART",
+};
+
+export default cartTypes;

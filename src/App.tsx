@@ -1,18 +1,18 @@
-import { useSelector, useDispatch } from "react-redux";
-import AllActions from "./store/all-actions";
+import Counter from "./components/counter";
+import Cart from "./components/cart";
+import Checkout from "./components/checkout";
 
 import "./App.css";
+import Products from "./components/products";
 
 function App() {
-    const count = useSelector((state: any) => state.counterReducer);
-    const dispatch = useDispatch()
 
     return (
         <>
-            <h3>{count}</h3>
-            <button onClick={() => dispatch(AllActions.CounterActions.IncrementCounter())}>increment</button>
-            <button onClick={() => dispatch(AllActions.CounterActions.DecrementCounter())}>decrement</button>
-            <button onClick={() => dispatch(AllActions.CounterActions.ResetCounter())}>reset</button>
+            <Counter/>
+            <Products/>
+            <Cart/>
+            <Checkout/>
         </>
     );
 }

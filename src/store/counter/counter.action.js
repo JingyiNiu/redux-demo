@@ -1,30 +1,30 @@
-import CounterType from "./counter.type";
+import counterType from "./counter.type";
 
 const IncrementCounter = (payload) => {
     return {
-        type: CounterType.INCREMENT,
+        type: counterType.INCREMENT,
         payload: payload,
     };
 };
 
 const DecrementCounter = (payload) => {
     return {
-        type: CounterType.DECREMENT,
+        type: counterType.DECREMENT,
         payload: payload,
     };
 };
 
 const ResetCounter = (payload) => {
     return {
-        type: CounterType.RESET,
+        type: counterType.RESET,
         payload: payload,
     };
 };
 
-const CounterActions = {
+const counterActions = {
     IncrementCounter,
     DecrementCounter,
     ResetCounter,
-}
+};
 
-export default CounterActions;
+export default counterActions;

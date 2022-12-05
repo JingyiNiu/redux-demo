@@ -17,10 +17,10 @@ export const cartReducer = (state = initialState, action) => {
             removeItem(state, payload);
             return { ...state };
         case cartTypes.QUANTITY_INCREMENT:
-            quantityIncrement(state, payload)
+            quantityIncrement(state, payload);
             return { ...state };
         case cartTypes.QUANTITY_DECREMENT:
-            quantityDecrement(state, payload)
+            quantityDecrement(state, payload);
             return { ...state };
         case cartTypes.CLEAR_CART:
             return initialState;
@@ -43,7 +43,7 @@ const addItem = (state, payload) => {
 const removeItem = (state, payload) => {
     const newCartItems = state.cartItems.filter((item) => item.id !== payload.id);
     state.cartItems = newCartItems;
-    state.itemCount--;
+    state.itemCount -= payload.quantity;
     state.totalPrice -= payload.price;
 };
 

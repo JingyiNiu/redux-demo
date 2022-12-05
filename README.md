@@ -1,7 +1,7 @@
 # Redux demo
 first part to show how to use redux to build a counter   
 then move on to build a shopping cart and checkout page   
-please check different branched   
+please check different branches   
 
 create app   
 `npx create-react-app redux-demo --template typescript`

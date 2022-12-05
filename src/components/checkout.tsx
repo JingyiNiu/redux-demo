@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import allActions from "../store/all-actions";
 
 const Checkout = () => {
     const { cartItems, totalPrice } = useSelector((state: any) => state.cartReducer);
@@ -21,9 +22,9 @@ const Checkout = () => {
                                     </div>
                                     <div className="col-3">
                                         <div className="d-flex align-items-center">
-                                            <button className="btn btn-sm btn-outline-secondary me-2">-</button>
+                                            <button className="btn btn-sm btn-outline-secondary me-2" onClick={()=>dispatch(allActions.cartActions.quantityDecrement(item))}>-</button>
                                             {item.quantity}
-                                            <button className="btn btn-sm btn-outline-secondary ms-2">+</button>
+                                            <button className="btn btn-sm btn-outline-secondary ms-2" onClick={()=>dispatch(allActions.cartActions.quantityIncrement(item))}>+</button>
                                         </div>
                                     </div>
                                     <div className="col-1">
@@ -31,7 +32,7 @@ const Checkout = () => {
                                     </div>
                                     <div className="col-1">${item.quantity * item.price}</div>
                                     <div className="col-1 text-end">
-                                        <button className="btn btn-sm btn-danger">X</button>
+                                        <button className="btn btn-sm btn-danger" onClick={()=>dispatch(allActions.cartActions.removeItem(item))}>X</button>
                                     </div>
                                 </div>
                             );

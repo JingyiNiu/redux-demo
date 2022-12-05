@@ -1,4 +1,6 @@
 import { connect } from "react-redux";
+import { IncrementCounter, DecrementCounter, ResetCounter } from "./store/counter/counter.action";
+
 import "./App.css";
 
 function App(props: any) {
@@ -31,7 +33,7 @@ const mapStateToProps = (state: any) => {
 };
 
 const mapDispatchToProps = (dispatch: any) => {
-    return { increment: () => dispatch({ type: "INCREMENT" }), decrement: () => dispatch({ type: "DECREMENT" }), reset: () => dispatch({ type: "RESET" }) };
+    return { increment: () => dispatch(IncrementCounter(null)), decrement: () => dispatch(DecrementCounter(null)), reset: () => dispatch(ResetCounter(null)) };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

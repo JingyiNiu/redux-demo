@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import allActions from "../store/all-actions";
-
+import { formatMoney } from "./utils";
 import productsInfo from "./productInfo";
 
 const Products = () => {
@@ -15,7 +15,7 @@ const Products = () => {
                         <div key={product.id} className="col-4 mb-5">
                             <h6>{product.title.substring(0, 55) + "..."}</h6>
                             <img src={product.image} alt="product" style={{ height: "100px", maxWidth: "150px", objectFit: "cover" }} />
-                            <p>${product.price}</p>
+                            <p>{formatMoney(product.price)}</p>
                             <button
                                 className="btn btn-outline-secondary"
                                 onClick={() => {

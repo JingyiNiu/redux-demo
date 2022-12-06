@@ -1,9 +1,19 @@
 import { useSelector, useDispatch } from "react-redux";
 import allActions from "../store/all-actions";
+import { formatMoney } from "./utils";
 
 const Checkout = () => {
-    const { cartItems, totalPrice } = useSelector((state: any) => state.cartReducer);
+    const { cartItems } = useSelector((state: any) => state.cartReducer);
     const dispatch = useDispatch();
+
+    const getTotalPrice = () => {
+        const totalPrice = cartItems.reduce((acc:number, item:any)=>{
+            return acc + item.price * item.quantity
+        }, 0)
+        return totalPrice
+    }
+
+    console.log(getTotalPrice())
 
     return (
         <>
@@ -28,9 +38,9 @@ const Checkout = () => {
                                         </div>
                                     </div>
                                     <div className="col-1">
-                                        <p>${item.price}</p>
+                                        <p>${formatMoney(item.price)}</p>
                                     </div>
-                                    <div className="col-1">${item.quantity * item.price}</div>
+                                    <div className="col-1">{formatMoney(item.quantity * item.price)}</div>
                                     <div className="col-1 text-end">
                                         <button className="btn btn-sm btn-danger" onClick={()=>dispatch(allActions.cartActions.removeItem(item))}>X</button>
                                     </div>
@@ -38,7 +48,7 @@ const Checkout = () => {
                             );
                         })}
                         <div className="text-end">
-                            <h3>Total: ${totalPrice}</h3>
+                            <h3>Total: {formatMoney(getTotalPrice())}</h3>
                         </div>
                     </>
                 ) : (

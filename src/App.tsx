@@ -10,6 +10,7 @@ function App() {
     return (
         <>
             <Counter/>
+            <hr />
             <Products/>
             <Cart/>
             <Checkout/>

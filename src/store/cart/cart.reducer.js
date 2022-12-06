@@ -3,7 +3,6 @@ import cartTypes from "./cart.type";
 const initialState = {
     cartItems: [],
     itemCount: 0,
-    totalPrice: 0,
 };
 
 export const cartReducer = (state = initialState, action) => {
@@ -37,21 +36,18 @@ const addItem = (state, payload) => {
         state.cartItems.push({ ...payload, quantity: 1 });
     }
     state.itemCount++;
-    state.totalPrice += payload.price;
 };
 
 const removeItem = (state, payload) => {
     const newCartItems = state.cartItems.filter((item) => item.id !== payload.id);
     state.cartItems = newCartItems;
     state.itemCount -= payload.quantity;
-    state.totalPrice -= payload.price;
 };
 
 const quantityIncrement = (state, payload) => {
     const ItemInCart = state.cartItems.find((item) => item.id === payload.id);
     ItemInCart.quantity++;
     state.itemCount++;
-    state.totalPrice += payload.price;
 };
 
 const quantityDecrement = (state, payload) => {
@@ -59,6 +55,5 @@ const quantityDecrement = (state, payload) => {
     if (ItemInCart.quantity !== 1) {
         ItemInCart.quantity--;
         state.itemCount--;
-        state.totalPrice -= payload.price;
     }
 };

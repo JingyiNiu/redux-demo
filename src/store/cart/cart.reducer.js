@@ -39,9 +39,10 @@ const addItem = (state, payload) => {
 };
 
 const removeItem = (state, payload) => {
-    const newCartItems = state.cartItems.filter((item) => item.id !== payload.id);
-    state.cartItems = newCartItems;
-    state.itemCount -= payload.quantity;
+    const remainItems = state.cartItems.filter((item) => item.id !== payload.id);
+    const itemToRemove = state.cartItems.find((item) => item.id === payload.id);
+    state.cartItems = remainItems;
+    state.itemCount -= itemToRemove.quantity;
 };
 
 const quantityIncrement = (state, payload) => {

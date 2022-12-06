@@ -13,8 +13,6 @@ const Checkout = () => {
         return totalPrice
     }
 
-    console.log(getTotalPrice())
-
     return (
         <>
             <h3>Checkout</h3>

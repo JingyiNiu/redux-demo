@@ -9,13 +9,8 @@ export const blogReducer = (state = initialState, action) => {
 
     switch (type) {
         case blogTypes.FETCH_POSTS:
-            fetchPosts(state, payload);
-            return { ...state };
+            return { ...state, posts: payload};
         default:
             return state;
     }
 };
-
-const fetchPosts = (state, payload) => {
-    state.posts = payload.data
-}

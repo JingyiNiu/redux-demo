@@ -20,7 +20,7 @@ const Blog = () => {
                           return (
                               <div key={post.id} className="col-6">
                                   <h6>{post.title}</h6>
-                                  <p>{post.body}</p>
+                                  <p>{post.body.substring(0, 60) + "..."}</p>
                               </div>
                           );
                       })

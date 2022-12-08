@@ -4,16 +4,19 @@ import Checkout from "./components/checkout";
 
 import "./App.css";
 import Products from "./components/products";
+import Blog from "./components/blog/blog";
 
 function App() {
-
     return (
         <>
-            <Counter/>
+            <Blog />
             <hr />
-            <Products/>
-            <Cart/>
-            <Checkout/>
+            <Counter />
+            <hr />
+            <Products />
+            <Cart />
+            <Checkout />
+            <hr />
         </>
     );
 }
